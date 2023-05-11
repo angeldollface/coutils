@@ -10,7 +10,7 @@ I found myself re-writing the same functions a million times in different Rust p
 
 ## INSTALLATION :inbox_tray:
 
-To use ***Coutils*** in your rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
+To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
 coutils = { git = "https://github.com/angeldollface/coutils", version = "1.0.0" }
