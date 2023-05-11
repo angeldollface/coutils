@@ -1,0 +1,21 @@
+[package]
+name = "coutils"
+version = "1.0.0"
+edition = "2021"
+description= "A set of useful functions for Rust."
+homepage = "https://github.com/angeldollface/coutils"
+repository = "https://github.com/angeldollface/coutils"
+documentation = "https://github.com/angeldollface/coutils"
+readme = "README.markdown"
+keywords = [
+  "utilities"
+]
+categories = [
+  "utilities"
+]
+exclude = [
+  "/.github"
+]
+
+[dependencies]
+rand = "0.8.5"
