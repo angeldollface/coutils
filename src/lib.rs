@@ -5,7 +5,7 @@ Licensed under the MIT license.
 
 /// Declaring the "modules"
 /// folder as a module.
-mod modules;
+pub mod modules;
 
 /// Declaring the "tests"
 /// module as the test module
