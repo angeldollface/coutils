@@ -11,8 +11,8 @@ mod modules;
 /// module as the test module
 /// and exporting it.
 #[cfg(test)]
-pub use modules::tests;
+pub use modules::tests::*;
 
 /// Declaring the main
 /// module and exporting it.
-pub use modules::coutils;
+pub use modules::coutils::*;
