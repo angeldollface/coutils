@@ -230,3 +230,17 @@ pub fn reverse_vec<T: Clone>(subject: &Vec<T>) -> Vec<T> {
     }
     return result;
 }
+
+pub fn has_item<T: Clone + PartialEq>(subject: &Vec<T>, item: T) -> bool {
+    let mut result: bool = false;
+    let match_op = &subject.iter().position(|r| r == &item);
+    match match_op {
+        Some(_x) => {
+            result = true;
+        }
+        None => {
+            // Do nothing.
+        }
+    }
+    return result;
+}

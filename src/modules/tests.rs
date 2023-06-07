@@ -48,6 +48,11 @@ use super::coutils::remove_last;
 /// module.
 use super::coutils::get_last_item;
 
+/// Importing the "has_item"
+/// function from the "coutils"
+/// module.
+use super::coutils::has_item;
+
 /// Testing the "clean_split" function.
 #[test]
 pub fn test_clean_split() -> () {
@@ -164,5 +169,20 @@ pub fn test_get_last_item() -> () {
             &test_vec
         ),
         last
+    );
+}
+
+#[test]
+pub fn test_has_item() -> () {
+    let test_vec: Vec<usize> = vec![1,2,3,4,5];
+    let existing_test_item: usize = 2;
+    let non_existing_test_item: usize = 6;
+    assert_eq!(
+        has_item(&test_vec, existing_test_item),
+        true
+    );
+    assert_eq!(
+        has_item(&test_vec, non_existing_test_item),
+        false
     );
 }
