@@ -13,10 +13,17 @@ use rand::Rng;
 /// "File" struct.
 use std::fs::File;
 
+use std::fs::read;
+/// Importing the "read_dir"
+/// function to list the contents 
+/// of a directory.
+use std::fs::read_dir;
+
 /// Importing Rust's "write"
 /// function.
 use std::fs::write;
 
+use std::path;
 /// Using Rust's standard
 /// "Path" API.
 use std::path::Path;
@@ -39,11 +46,54 @@ use std::fs::read_to_string;
 
 /// An enum to list
 /// the file types.
-#[derive(PartialEq)]
+#[derive(PartialEq, Clone)]
 pub enum Entity{
     Dir,
     File,
     Unknown
+}
+
+#[derive(PartialEq, Clone)]
+pub struct FileEntry {
+    pub name: String,
+    pub file_type: Entity
+}
+
+impl FileEntry {
+     pub fn new(name: &String, file_type: &Entity) -> FileEntry {
+        return FileEntry { name: name.to_owned(), file_type: file_type.to_owned() }
+     }
+}
+
+pub fn list_dir_contents(dir: &str) -> Vec<FileEntry> {
+    let mut result: Vec<FileEntry> = Vec::new();
+    for item in read_dir(dir).unwrap() {
+        match item {
+            Ok(dir_item) => {
+                let path_item: &String = &dir_item.path().display().to_string();
+                if metadata(path_item).unwrap().is_dir() {
+                    result.push(
+                        FileEntry::new(
+                            path_item,
+                            &Entity::Dir
+                        )
+                    );
+                }
+                else {
+                    result.push(
+                        FileEntry::new(
+                            &path_item,
+                            &Entity::File
+                        )
+                    );
+                }
+            },
+            Err(e) => {
+                // Do nothing.
+            }
+        };
+    }
+    return result;
 }
 
 /// Checks whether a file exists and
