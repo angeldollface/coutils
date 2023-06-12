@@ -9,7 +9,7 @@ pub mod tests;
 
 /// Exporting the module
 /// for working with 
-/// intergers.
+/// integers.
 pub mod int_utils;
 
 /// Exporting the module

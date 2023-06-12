@@ -10,7 +10,7 @@ Licensed under the MIT license.
 use git2::Repository;
 
 /// Imports the "PathBuf"
-/// data structure from 
+/// entity from 
 /// Rust's "path" module.
 use std::path::PathBuf;
 

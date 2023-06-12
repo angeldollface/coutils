@@ -4,15 +4,18 @@ Licensed under the MIT license.
 */
 
 /// Importing Rust's 
-/// "File" struct.
+/// "File" struct
+/// from the "fs" module.
 use std::fs::File;
 
 /// Importing Rust's "write"
-/// function.
+/// function from the "fs"
+/// module.
 use std::fs::write;
 
 /// Rust's file metadata
-/// API.
+/// API from the "fs"
+/// module.
 use std::fs::metadata;
 
 /// Importing Rust's "remove_file"
@@ -50,7 +53,7 @@ pub enum Entity{
 
 /// Tries to move a file from "src" to "target"
 /// and returns a boolean depending on whether the
-/// operation succeeded.
+/// operation succeeded or not.
 pub fn file_move(src: String, target: String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
@@ -76,7 +79,7 @@ pub fn file_is(filename: &String) -> bool {
 
 // Tries to create a file and returns
 /// a boolean depending on whether the
-/// operation succeeded.
+/// operation succeeded or not.
 pub fn create_file(filename: &String) -> bool {
     let mut result: bool = false;
     let new_file = File::create(filename);
@@ -89,7 +92,7 @@ pub fn create_file(filename: &String) -> bool {
 
 /// Tries to write to a file and returns
 /// a boolean depending on whether the
-/// operation succeeded.
+/// operation succeeded or not.
 pub fn write_to_file(
     filename: &String, 
     contents: &String
@@ -106,7 +109,8 @@ pub fn write_to_file(
 }
 
 /// Tries to read a file and return
-/// its contents as a contents.
+/// its contents as a string. If the file cannot be
+/// read, an empty string is returned.
 pub fn read_file(filename: &String) -> String {
     let mut result: String = String::from("");
     if file_is(filename) == true {
@@ -117,7 +121,7 @@ pub fn read_file(filename: &String) -> String {
 }
 
 /// Checks whether "entity" is a directory or
-/// file.
+/// a file.
 pub fn file_type(entity: &String) -> Entity {
     let mut result: Entity = Entity::Unknown;
     if metadata(entity).unwrap().is_dir() {
@@ -132,7 +136,8 @@ pub fn file_type(entity: &String) -> Entity {
     return result;
 }
 
-/// Deletes a file and returns depending
+/// Deletes a file and returns 
+/// a boolean depending
 /// on whether the operation succeeded.
 pub fn del_file(path: &str) -> bool {
     let mut result: bool = false;

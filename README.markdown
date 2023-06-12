@@ -18,7 +18,7 @@ coutils = { git = "https://github.com/angeldollface/coutils", version = "1.2.0" 
 
 ## USAGE :hammer:
 
-To check out the functions available have a look at this file in the source code: [`src/modules/coutils.rs`](src/modules/coutils.rs).
+To check out the functions and entities available view the documentation for this crate [here](https://angeldollface.art/coutils).
 
 ## CHANGELOG :black_nib:
 
@@ -40,6 +40,7 @@ To check out the functions available have a look at this file in the source code
 - Added some new entities.
 - Added a function to delete files.
 - Added a function to delete directories.
+- Added auto-generated documentation that is deployed on GitHub Pages.
 
 ## NOTE :scroll:
 

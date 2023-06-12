@@ -4,11 +4,13 @@ Licensed under the MIT license.
 */
 
 /// Using Rust's standard
-/// "Path" API.
+/// "Path" API from the
+/// "path" module.
 use std::path::Path;
 
 /// Rust's file metadata
-/// API.
+/// API from the "fs"
+/// module.
 use std::fs::metadata;
 
 /// Importing the "PartialEq"
@@ -43,7 +45,9 @@ use std::fs::remove_dir_all;
 use fs_extra::dir::move_dir;
 
 /// Importing the "Entity" enum
-/// because "FileEntry" needs it.
+/// from this crate's "file_utils"
+/// module because "FileEntry"
+/// needs it.
 use super::file_utils::Entity;
 
 /// We need this entity to
@@ -53,7 +57,7 @@ use fs_extra::dir::CopyOptions;
 
 /// Tries to copy a folder from "src" to "target"
 /// and returns a boolean depending on whether the
-/// operation succeeded.
+/// operation succeeded or not.
 pub fn folder_copy(src: String, target: String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
@@ -67,7 +71,7 @@ pub fn folder_copy(src: String, target: String) -> bool {
 
 /// Attempts to move a directory from "src" to "target".
 /// A boolean is returned depending on whether the operation
-/// suceeded.
+/// suceeded or not.
 pub fn dir_move(src: String, target: String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
@@ -81,7 +85,7 @@ pub fn dir_move(src: String, target: String) -> bool {
 
 /// Tries to create a new directory and returns
 /// a boolean depending on whether the
-/// operation succeeded.
+/// operation succeeded or not.
 pub fn create_directory(path: String) -> bool {
     let mut result: bool = false;
     let new_dir = create_dir(path);
@@ -110,7 +114,7 @@ pub struct FileEntry {
 /// entity.
 impl FileEntry {
 
-    /// Convnience method
+    /// Convenience method
     /// to create a new instance
     /// of the "FileEntry" entity.
     pub fn new(name: &String, file_type: &Entity) -> FileEntry {
@@ -155,8 +159,9 @@ pub fn list_dir_contents(dir: &str) -> Vec<FileEntry> {
     return result;
 }
 
-/// Deletes a directory and returns depending
-/// on whether the operation succeeded.
+/// Deletes a directory and returns 
+/// a boolean depending on whether 
+/// the operation succeeded or not.
 pub fn del_dir(path: &str) -> bool {
     let mut result: bool = false;
     let del_op = remove_dir_all(path);
