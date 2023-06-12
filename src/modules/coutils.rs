@@ -123,15 +123,50 @@ pub fn clone_repo(repo: String, target_dir: String) -> bool {
     return result[0];
 }
 
+pub struct ServerInfo {
+    pub has_message: bool,
+    pub server_message: Option<String>
+}
+
+impl ServerInfo {
+    pub fn new(
+        has_message: &bool,
+        server_message: &Option<String>
+    ) -> ServerInfo {
+        return ServerInfo{
+            has_message: has_message.to_owned(),
+            server_message: server_message.to_owned()
+        }
+    }
+}
+
 /// Serves the "build" dir
 /// on this address: https://localhost:1024.
-pub fn serve_dir(project_path: String) {
+pub fn serve_dir(
+    project_path: &String, 
+    server_info: &ServerInfo
+) {
     let mut path: PathBuf = PathBuf::new();
     path.push(project_path);
-    path.push(acid_constants()["build_dir"].clone());
     let server_instance: Server = Server::new(path);
-    println!("{}", format!("Serving your site on address:\n{}\nPress Ctrl+C to quit the server.", server_instance.addr()).cyan().to_string());
-    server_instance.serve();
+    if server_info.has_message {
+        match &server_info.server_message {
+            Some(msg) => {
+                println!("{}", msg);
+            },
+            None => {
+                // Do nothing.
+            }
+        }
+    }
+    else {
+        // Do nothing.
+    }
+    server_instance.serve().unwrap_or_else(
+        |error| {
+            println!("{}", error);
+        }
+    );
 }
 
 /// Tries to copy a folder from "src" to "target"
