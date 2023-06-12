@@ -9,6 +9,23 @@ Licensed under the MIT license.
 /// crate.
 use rand::Rng;
 
+use git2::Repository;
+
+use std::path::PathBuf;
+
+use file_serve::Server;
+
+use std::fs::create_dir;
+use fs_extra::dir::copy;
+
+use fs_extra::dir::move_dir;
+
+use std::fs::remove_dir_all;
+
+use fs_extra::file::move_file;
+
+use fs_extra::file::CopyOptions;
+
 /// Importing Rust's 
 /// "File" struct.
 use std::fs::File;
@@ -94,6 +111,82 @@ pub fn list_dir_contents(dir: &str) -> Vec<FileEntry> {
         };
     }
     return result;
+}
+
+/// Clones a GitHub repository from "repo" into "target_dir".
+pub fn clone_repo(repo: String, target_dir: String) -> bool {
+    let mut result: Vec<bool> = Vec::new();
+    let repo = match Repository::clone(&repo, target_dir) {
+        Ok(_x) => result.push(true),
+        Err(_e) => result.push(false)
+    };
+    return result[0];
+}
+
+/// Serves the "build" dir
+/// on this address: https://localhost:1024.
+pub fn serve_dir(project_path: String) {
+    let mut path: PathBuf = PathBuf::new();
+    path.push(project_path);
+    path.push(acid_constants()["build_dir"].clone());
+    let server_instance: Server = Server::new(path);
+    println!("{}", format!("Serving your site on address:\n{}\nPress Ctrl+C to quit the server.", server_instance.addr()).cyan().to_string());
+    server_instance.serve();
+}
+
+/// Tries to copy a folder from "src" to "target"
+/// and returns a boolean depending on whether the
+/// operation succeeded.
+pub fn folder_copy(src: String, target: String) -> bool {
+    let mut result: Vec<bool> = Vec::new();
+    let options = fs_extra::dir::CopyOptions::new();
+    let copy_op = copy(src, target, &options);
+    match copy_op {
+        Ok(_n) => result.push(true),
+        Err(_x) => result.push(false)
+    }
+    return result[0];
+}
+
+/// Attempts to move a directory from "src" to "target".
+/// A boolean is returned depending on whether the operation
+/// suceeded.
+pub fn dir_move(src: String, target: String) -> bool {
+    let mut result: Vec<bool> = Vec::new();
+    let options = fs_extra::dir::CopyOptions::new();
+    let move_op = move_dir(src, target, &options);
+    match move_op {
+        Ok(_n) => result.push(true),
+        Err(_x) => result.push(false)
+    }
+    return result[0];
+}
+
+/// Tries to create a new directory and returns
+/// a boolean depending on whether the
+/// operation succeeded.
+pub fn create_directory(path: String) -> bool {
+    let mut result: Vec<bool> = Vec::new();
+    let new_dir = create_dir(path);
+    match new_dir {
+        Ok(_n) => result.push(true),
+        Err(_x) => result.push(false)
+    }
+    return result[0];
+}
+
+/// Tries to move a file from "src" to "target"
+/// and returns a boolean depending on whether the
+/// operation succeeded.
+pub fn file_move(src: String, target: String) -> bool {
+    let mut result: Vec<bool> = Vec::new();
+    let options = CopyOptions::new();
+    let move_op = move_file(src, target, &options);
+    match move_op {
+        Ok(_n) => result.push(true),
+        Err(_x) => result.push(false)
+    }
+    return result[0];
 }
 
 /// Checks whether a file exists and
