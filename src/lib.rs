@@ -13,6 +13,27 @@ pub mod modules;
 #[cfg(test)]
 pub use modules::tests::*;
 
-/// Declaring the main
-/// module and exporting it.
-pub use modules::coutils::*;
+/// Declaring the module for
+/// working with integers
+/// and exporting it.
+pub use modules::int_utils::*;
+
+/// Declaring the module for
+/// working with directories
+/// and exporting it.
+pub use modules::dir_utils::*;
+
+/// Declaring the module for
+/// working with vectors
+/// and exporting it.
+pub use modules::vec_utils::*;
+
+/// Declaring the module for
+/// working with files
+/// and exporting it.
+pub use modules::file_utils::*;
+
+/// Declaring the module for
+/// working with strings
+/// and exporting it.
+pub use modules::string_utils::*;

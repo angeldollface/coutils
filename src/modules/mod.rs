@@ -7,6 +7,27 @@ Licensed under the MIT license.
 /// module.
 pub mod tests;
 
-/// Exporting the main
-/// module.
-pub mod coutils;
+/// Exporting the module
+/// for working with 
+/// intergers.
+pub mod int_utils;
+
+/// Exporting the module
+/// for working with 
+/// directories.
+pub mod dir_utils;
+
+/// Exporting the module
+/// for working with 
+/// vectors.
+pub mod vec_utils;
+
+/// Exporting the module
+/// for working with 
+/// files.
+pub mod file_utils;
+
+/// Exporting the module
+/// for working with 
+/// strings.
+pub mod string_utils;
