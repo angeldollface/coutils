@@ -13,7 +13,7 @@ I found myself re-writing the same functions a million times in different Rust p
 To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
-coutils = { git = "https://github.com/angeldollface/coutils", version = "1.1.0" }
+coutils = { git = "https://github.com/angeldollface/coutils", version = "1.2.0" }
 ```
 
 ## USAGE :hammer:
@@ -32,6 +32,14 @@ To check out the functions available have a look at this file in the source code
 - Added the `has_item` method.
 - Added unit tests.
 - Split the code into modules.
+
+### Version 1.2.0
+
+- Split everything into sub-modules.
+- Refactored some functions.
+- Added some new entities.
+- Added a function to delete files.
+- Added a function to delete directories.
 
 ## NOTE :scroll:
 

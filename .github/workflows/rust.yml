@@ -12,3 +12,12 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
+      - name: "Generate documentation."
+        uses: actions-rs/cargo@v1
+        with:
+          command: doc
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: target/doc/coutils
