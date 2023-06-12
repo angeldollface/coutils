@@ -32,6 +32,11 @@ use std::fs::create_dir;
 /// of a directory.
 use std::fs::read_dir;
 
+/// Importing Rust's "remove_dir_all"
+/// function from the "fs" module
+/// to remove directories.
+use std::fs::remove_dir_all;
+
 /// We import the "move_dir"
 /// method from the "fs_extra"
 /// crate.
@@ -50,47 +55,46 @@ use fs_extra::dir::CopyOptions;
 /// and returns a boolean depending on whether the
 /// operation succeeded.
 pub fn folder_copy(src: String, target: String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let options = CopyOptions::new();
     let copy_op = copy(src, target, &options);
     match copy_op {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 /// Attempts to move a directory from "src" to "target".
 /// A boolean is returned depending on whether the operation
 /// suceeded.
 pub fn dir_move(src: String, target: String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let options = CopyOptions::new();
     let move_op = move_dir(src, target, &options);
     match move_op {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 /// Tries to create a new directory and returns
 /// a boolean depending on whether the
 /// operation succeeded.
 pub fn create_directory(path: String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let new_dir = create_dir(path);
     match new_dir {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 /// Checks whether a directory exists.
 pub fn dir_is(dir: &String) -> bool {
-    let result: bool = Path::new(dir).is_dir();
-    return result;
+    return Path::new(dir).is_dir();
 }
 
 /// A data structure to represent
@@ -148,5 +152,17 @@ pub fn list_dir_contents(dir: &str) -> Vec<FileEntry> {
             }
         };
     }
+    return result;
+}
+
+/// Deletes a directory and returns depending
+/// on whether the operation succeeded.
+pub fn del_dir(path: &str) -> bool {
+    let mut result: bool = false;
+    let del_op = remove_dir_all(path);
+    match del_op {
+        Ok(_x) => result = true,
+        Err(_e) => {}
+    };
     return result;
 }

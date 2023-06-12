@@ -15,6 +15,11 @@ use std::fs::write;
 /// API.
 use std::fs::metadata;
 
+/// Importing Rust's "remove_file"
+/// function from the "fs" module
+/// to remove files.
+use std::fs::remove_file;
+
 /// Importing the "PartialEq"
 /// trait from Rust's "cmp"
 /// module.
@@ -47,39 +52,39 @@ pub enum Entity{
 /// and returns a boolean depending on whether the
 /// operation succeeded.
 pub fn file_move(src: String, target: String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let options = CopyOptions::new();
     let move_op = move_file(src, target, &options);
     match move_op {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 /// Checks whether a file exists and
 /// returns a boolean to that effect.
 pub fn file_is(filename: &String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let contents = read_to_string(filename);
     match contents {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 // Tries to create a file and returns
 /// a boolean depending on whether the
 /// operation succeeded.
 pub fn create_file(filename: &String) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     let new_file = File::create(filename);
     match new_file {
-        Ok(_n) => result.push(true),
-        Err(_x) => result.push(false)
+        Ok(_n) => result = true,
+        Err(_x) => {}
     }
-    return result[0];
+    return result;
 }
 
 /// Tries to write to a file and returns
@@ -89,15 +94,15 @@ pub fn write_to_file(
     filename: &String, 
     contents: &String
 ) -> bool {
-    let mut result: Vec<bool> = Vec::new();
+    let mut result: bool = false;
     if file_is(filename) == true {
         let write_op = write(filename, contents);
         match write_op {
-            Ok(_n) => result.push(true),
-            Err(_x) => result.push(false)
+            Ok(_n) => result = true,
+            Err(_x) => {}
         }
     }
-    return result[0];
+    return result;
 }
 
 /// Tries to read a file and return
@@ -124,5 +129,17 @@ pub fn file_type(entity: &String) -> Entity {
     else {
         result = Entity::Unknown;
     }
+    return result;
+}
+
+/// Deletes a file and returns depending
+/// on whether the operation succeeded.
+pub fn del_file(path: &str) -> bool {
+    let mut result: bool = false;
+    let del_op = remove_file(path);
+    match del_op {
+        Ok(_x) => result = true,
+        Err(_e) => {}
+    };
     return result;
 }
