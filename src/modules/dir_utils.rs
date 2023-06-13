@@ -58,7 +58,7 @@ use fs_extra::dir::CopyOptions;
 /// Tries to copy a folder from "src" to "target"
 /// and returns a boolean depending on whether the
 /// operation succeeded or not.
-pub fn folder_copy(src: String, target: String) -> bool {
+pub fn folder_copy(src: &String, target: &String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
     let copy_op = copy(src, target, &options);
@@ -72,7 +72,7 @@ pub fn folder_copy(src: String, target: String) -> bool {
 /// Attempts to move a directory from "src" to "target".
 /// A boolean is returned depending on whether the operation
 /// suceeded or not.
-pub fn dir_move(src: String, target: String) -> bool {
+pub fn dir_move(src: &String, target: &String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
     let move_op = move_dir(src, target, &options);
@@ -86,7 +86,7 @@ pub fn dir_move(src: String, target: String) -> bool {
 /// Tries to create a new directory and returns
 /// a boolean depending on whether the
 /// operation succeeded or not.
-pub fn create_directory(path: String) -> bool {
+pub fn create_directory(path: &String) -> bool {
     let mut result: bool = false;
     let new_dir = create_dir(path);
     match new_dir {
@@ -151,7 +151,7 @@ pub fn list_dir_contents(dir: &str) -> Vec<FileEntry> {
                     );
                 }
             },
-            Err(e) => {
+            Err(_e) => {
                 // Do nothing.
             }
         };

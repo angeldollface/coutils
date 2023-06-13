@@ -18,7 +18,25 @@ coutils = { git = "https://github.com/angeldollface/coutils", version = "1.2.0" 
 
 ## USAGE :hammer:
 
-To check out the functions and entities available view the documentation for this crate [here](https://angeldollface.art/coutils).
+To understand what functions and entities *Coutils* offers, please make sure you have the [Rust](https://rust-lang.org) and [Git](https://git-scm.org) installed and execute the following steps:
+
+- 1.) Download the source code:
+
+```bash
+git clone https://github.com/angeldollface/coutils.git
+```
+
+- 2.) Change directory into the root directory of the crate's source code:
+
+```bash
+cd coutils
+```
+
+- 3.) Generate the documentation and open it in your default browser:
+
+```bash
+cargo doc --open
+```
 
 ## CHANGELOG :black_nib:
 
@@ -38,9 +56,8 @@ To check out the functions and entities available view the documentation for thi
 - Split everything into sub-modules.
 - Refactored some functions.
 - Added some new entities.
-- Added a function to delete files.
-- Added a function to delete directories.
-- Added auto-generated documentation that is deployed on GitHub Pages.
+- Added a host of functions and entities.
+- Added instructions for using and viewing API documentation.
 
 ## NOTE :scroll:
 

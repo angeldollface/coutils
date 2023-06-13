@@ -19,6 +19,6 @@ exclude = [
 
 [dependencies]
 rand = "0.8.5"
-git2 = "0.14.2"
+git2 = "0.17.2"
 fs_extra = "1.2.0"
-file-serve = "0.1.1"
+file-serve = "0.2.4"

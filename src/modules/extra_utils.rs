@@ -85,7 +85,7 @@ pub fn serve_dir(
 /// Clones a GitHub repository from the "repo" URL
 /// into "target_dir". Returns a boolean to say whether
 /// this operation was successful!
-pub fn clone_repo(repo: String, target_dir: String) -> bool {
+pub fn clone_repo(repo: &String, target_dir: &String) -> bool {
     let mut result: bool = false;
     let repo = match Repository::clone(&repo, target_dir) {
         Ok(_x) => {

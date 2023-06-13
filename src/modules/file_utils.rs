@@ -54,7 +54,7 @@ pub enum Entity{
 /// Tries to move a file from "src" to "target"
 /// and returns a boolean depending on whether the
 /// operation succeeded or not.
-pub fn file_move(src: String, target: String) -> bool {
+pub fn file_move(src: &String, target: &String) -> bool {
     let mut result: bool = false;
     let options = CopyOptions::new();
     let move_op = move_file(src, target, &options);
@@ -105,6 +105,7 @@ pub fn write_to_file(
             Err(_x) => {}
         }
     }
+    else {}
     return result;
 }
 
