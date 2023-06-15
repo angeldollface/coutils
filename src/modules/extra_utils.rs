@@ -66,6 +66,7 @@ pub fn serve_dir(
         match &server_info.server_message {
             Some(msg) => {
                 println!("{}", msg);
+                println!("Port: {}", server_instance.addr());
             },
             None => {
                 // Do nothing.
@@ -77,7 +78,7 @@ pub fn serve_dir(
     }
     match server_instance.serve() {
         Ok(_x) => {
-            // ?
+            //?
         },
         Err(e) => {
             println!("{}", e);
