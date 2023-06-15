@@ -75,11 +75,15 @@ pub fn serve_dir(
     else {
         // Do nothing.
     }
-    server_instance.serve().unwrap_or_else(
-        |error| {
-            println!("{}", error);
+    match server_instance.serve() {
+        Ok(_x) => {
+            // ?
+        },
+        Err(e) => {
+            println!("{}", e);
         }
-    );
+    }
+
 }
 
 /// Clones a GitHub repository from the "repo" URL
