@@ -13,7 +13,7 @@ I found myself re-writing the same functions a million times in different Rust p
 To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
-coutils = { git = "https://github.com/angeldollface/coutils", version = "1.3.0" }
+coutils = { git = "https://github.com/angeldollface/coutils", version = "1.4.0" }
 ```
 
 ## USAGE :hammer:
@@ -64,6 +64,12 @@ cargo doc --open
 - Added a function to copy files from `src/test_file.txt` to `dest/test_file.txt`.
 - Updated documentation.
 - Bumped version number.
+
+### Version 1.4.0
+
+- Added better error-catching architecture via the `Result` enum.
+- Improved documentation.
+- Added a function to get the current time as a formatted string.
 
 ## NOTE :scroll:
 

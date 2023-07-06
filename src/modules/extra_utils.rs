@@ -20,83 +20,37 @@ use std::path::PathBuf;
 /// crate.
 use file_serve::Server;
 
-/// A data structure to
-/// store configuration
-/// options for starting a local
-/// server instance.
-pub struct ServerInfo {
-
-    /// Will our server have
-    /// a message while it serves?
-    pub has_message: bool,
-
-    /// If so, what will the message be?
-    pub server_message: Option<String>
-}
-
-/// Implementing methdos
-/// for the "ServerInfo"
+/// Importing this crate's error
 /// structure.
-impl ServerInfo {
-
-    /// Convenience method
-    /// to create a new instance
-    /// of the "ServeInfo" data structure.
-    pub fn new(
-        has_message: &bool,
-        server_message: &Option<String>
-    ) -> ServerInfo {
-        return ServerInfo{
-            has_message: has_message.to_owned(),
-            server_message: server_message.to_owned()
-        }
-    }
-}
+use super::error::CoutilsError;
 
 /// Serves a directory on the local
 /// machine. Returns nothing.
 pub fn serve_dir(
-    project_path: &String, 
-    server_info: &ServerInfo
-) -> () {
-    let mut path: PathBuf = PathBuf::new();
-    path.push(project_path);
-    let server_instance: Server = Server::new(path);
-    if server_info.has_message {
-        match &server_info.server_message {
-            Some(msg) => {
-                println!("{}", msg);
-                println!("Port: {}", server_instance.addr());
-            },
-            None => {
-                // Do nothing.
-            }
-        }
-    }
-    else {
-        // Do nothing.
-    }
-    match server_instance.serve() {
+    project_path: &String
+) -> Result<String, CoutilsError> { 
+    let mut result: String = String::from("");  
+    let server = file_serve::Server::new(&project_path);
+    let serve_op = match server.serve(){
         Ok(_x) => {
-            //?
+            result = server.addr().to_owned();
         },
         Err(e) => {
-            println!("{}", e);
+            return Err::<String, CoutilsError>(CoutilsError::new(&e.to_string()));
         }
-    }
-
+    };
+    return Ok(result);
 }
 
 /// Clones a GitHub repository from the "repo" URL
 /// into "target_dir". Returns a boolean to say whether
 /// this operation was successful!
-pub fn clone_repo(repo: &String, target_dir: &String) -> bool {
-    let mut result: bool = false;
+pub fn clone_repo(repo: &String, target_dir: &String) -> Result<(), CoutilsError> {
     let repo = match Repository::clone(&repo, target_dir) {
-        Ok(_x) => {
-            result = true;
-        },
-        Err(_e) => {}
+        Ok(_x) => {},
+        Err(e) => {
+            return Err::<(), CoutilsError>(CoutilsError::new(&e.to_string()));
+        }
     };
-    return result;
+    return Ok(());
 }

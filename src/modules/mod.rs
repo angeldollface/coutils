@@ -7,6 +7,11 @@ Licensed under the MIT license.
 /// module.
 pub mod tests;
 
+/// Exporting this
+/// crate's error-handling
+/// module.
+pub mod error;
+
 /// Exporting the module
 /// for working with 
 /// integers.

@@ -13,6 +13,11 @@ pub mod modules;
 #[cfg(test)]
 pub use modules::tests::*;
 
+/// Re-exporting this
+/// crate's error-handling
+/// module.
+pub use modules::error::*;
+
 /// Declaring the module for
 /// working with integers
 /// and exporting it.
