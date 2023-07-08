@@ -7,11 +7,21 @@ Licensed under the MIT license.
 /// folder as a module.
 pub mod modules;
 
+/// Re-exporting this
+/// crate's time
+/// module.
+pub use modules::time::*;
+
 /// Declaring the "tests"
 /// module as the test module
 /// and exporting it.
 #[cfg(test)]
 pub use modules::tests::*;
+
+/// Re-exporting this
+/// crate's error-handling
+/// module.
+pub use modules::error::*;
 
 /// Declaring the module for
 /// working with integers

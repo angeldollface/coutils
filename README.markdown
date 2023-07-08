@@ -13,12 +13,12 @@ I found myself re-writing the same functions a million times in different Rust p
 To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
-coutils = "1.3.0"
+coutils = "1.4.0"
 ```
 
 ## USAGE
 
-To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.3.0).
+To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.4.0).
 
 ## CHANGELOG
 
@@ -46,6 +46,12 @@ To check out this crate's API, please visit the [documentation page](https://doc
 - Added a function to copy files from `src/test_file.txt` to `dest/test_file.txt`.
 - Updated documentation.
 - Bumped version number.
+
+### Version 1.4.0
+
+- Added better error-catching architecture via the `Result` enum.
+- Improved documentation.
+- Added a function to get the current time as a formatted string.
 
 ## NOTE
 

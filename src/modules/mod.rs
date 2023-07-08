@@ -3,9 +3,18 @@ COUTILS by Alexander Abraham a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
+/// Exporting the "time"
+/// module.
+pub mod time;
+
 /// Exporting the "tests"
 /// module.
 pub mod tests;
+
+/// Exporting this
+/// crate's error-handling
+/// module.
+pub mod error;
 
 /// Exporting the module
 /// for working with 

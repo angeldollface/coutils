@@ -14,6 +14,10 @@ use rand::Rng;
 /// module.
 use std::fmt::Debug;
 
+/// Importing this crate's error
+/// structure.
+use super::error::CoutilsError;
+
 /// Reverses the order of a vector and 
 /// returns the reversed vector.
 pub fn reverse_vec<T: Clone>(subject: &Vec<T>) -> Vec<T> {
@@ -37,9 +41,7 @@ pub fn has_item<T: Clone + PartialEq>(
         Some(_x) => {
             result = true;
         }
-        None => {
-            // Do nothing.
-        }
+        None => {}
     }
     return result;
 }
@@ -90,6 +92,13 @@ pub fn remove_last<T: Debug + Clone + PartialEq>(
 pub fn get_index<T: Debug + Clone + PartialEq>(
     subject: &Vec<T>, 
     item: &T
-) -> usize {
-    return subject.iter().position(|s| s == item).unwrap();
+) -> Result<usize, CoutilsError> {
+    let mut result: usize = match subject.iter().position(|s| s == item){
+        Some(result) => result,
+        None => {
+            let e: String = format!("Element \"{:?}\" does not exist.", &item);
+            return Err::<usize, CoutilsError>(CoutilsError::new(&e.to_string()));
+        }
+    };
+    return Ok(result);
 }

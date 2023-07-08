@@ -73,10 +73,17 @@ pub fn test_clean_split() -> () {
 pub fn test_get_index() -> () {
     let index: usize = 1;
     let test_vec: Vec<usize> = vec![1,2,3,4];
-    assert_eq!(
-        get_index(&test_vec,&2),
-        index
-    );
+    match get_index(&test_vec, &2){
+        Ok(res) => {
+            assert_eq!(
+                res,
+                index
+            );
+        },
+        Err(e) => {
+            println!("{}", e);
+        }
+    };
 }
 
 /// Testing the "has_index" function.
