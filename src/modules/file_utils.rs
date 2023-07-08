@@ -18,6 +18,12 @@ use std::fs::write;
 /// module.
 use std::fs::metadata;
 
+/// Importing the method
+/// to copy files
+/// from the "fs-extra"
+/// crate.
+use fs_extra::file::copy;
+
 /// Importing Rust's "remove_file"
 /// function from the "fs" module
 /// to remove files.
@@ -147,5 +153,19 @@ pub fn del_file(path: &str) -> bool {
         Ok(_x) => result = true,
         Err(_e) => {}
     };
+    return result;
+}
+
+/// Tries to copy a file from "src" to "target"
+/// and returns a boolean depending on whether the
+/// operation succeeded or not.
+pub fn file_copy(src: &String, target: &String) -> bool {
+    let mut result: bool = false;
+    let options = CopyOptions::new();
+    let copy_op = copy(src, target, &options);
+    match copy_op {
+        Ok(_n) => result = true,
+        Err(_x) => {}
+    }
     return result;
 }

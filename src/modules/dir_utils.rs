@@ -56,7 +56,7 @@ use super::file_utils::Entity;
 use fs_extra::dir::CopyOptions;
 
 /// Tries to copy a folder from "src" to "target"
-/// and return a boolean depending on whether the
+/// and returns a boolean depending on whether the
 /// operation succeeded or not.
 pub fn folder_copy(src: &String, target: &String) -> bool {
     let mut result: bool = false;

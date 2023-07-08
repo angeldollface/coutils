@@ -41,7 +41,7 @@ impl ServerInfo {
 
     /// Convenience method
     /// to create a new instance
-    /// of the "ServerInfo" data structure.
+    /// of the "ServeInfo" data structure.
     pub fn new(
         has_message: &bool,
         server_message: &Option<String>
