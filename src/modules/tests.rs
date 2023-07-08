@@ -6,52 +6,47 @@ Licensed under the MIT license.
 /// Importing the "is_int"
 /// function from the "coutils"
 /// module.
-use super::int_utils::is_int;
-
-/// Importing the "has_item"
-/// function from the "coutils"
-/// module.
-use super::vec_utils::has_item;
+use super::coutils::is_int;
 
 /// Importing the "raise_to"
 /// function from the "coutils"
 /// module.
-use super::int_utils::raise_to;
+use super::coutils::raise_to;
 
 /// Importing the "parse_int"
 /// function from the "coutils"
 /// module.
-use super::int_utils::parse_int;
+use super::coutils::parse_int;
 
 /// Importing the "get_index"
 /// function from the "coutils"
 /// module.
-use super::vec_utils::get_index;
+use super::coutils::get_index;
 
 /// Importing the "has_index"
 /// function from the "coutils"
 /// module.
-use super::vec_utils::has_index;
+use super::coutils::has_index;
 
 /// Importing the "reverse_vec"
 /// function from the "coutils"
 /// module.
-use super::vec_utils::reverse_vec;
-
-/// Importing the "remove_last"
-/// function from the "coutils"
-/// module.
-use super::vec_utils::remove_last;
-
-/// Importing the "last_item"
-/// function from the "coutils"
-/// module.
-use super::vec_utils::get_last_item;
+use super::coutils::reverse_vec;
 
 /// Importing the "clean_split"
 /// function from the "coutils"
 /// module.
-use super::string_utils::clean_split;
+use super::coutils::clean_split;
+
+/// Importing the "remove_last"
+/// function from the "coutils"
+/// module.
+use super::coutils::remove_last;
+
+/// Importing the "get_last_item"
+/// function from the "coutils"
+/// module.
+use super::coutils::get_last_item;
 
 /// Testing the "clean_split" function.
 #[test]
@@ -73,17 +68,10 @@ pub fn test_clean_split() -> () {
 pub fn test_get_index() -> () {
     let index: usize = 1;
     let test_vec: Vec<usize> = vec![1,2,3,4];
-    match get_index(&test_vec, &2){
-        Ok(res) => {
-            assert_eq!(
-                res,
-                index
-            );
-        },
-        Err(e) => {
-            println!("{}", e);
-        }
-    };
+    assert_eq!(
+        get_index(&test_vec,&2),
+        index
+    );
 }
 
 /// Testing the "has_index" function.
@@ -176,21 +164,5 @@ pub fn test_get_last_item() -> () {
             &test_vec
         ),
         last
-    );
-}
-
-/// Testing the "has_item" function.
-#[test]
-pub fn test_has_item() -> () {
-    let test_vec: Vec<usize> = vec![1,2,3,4,5];
-    let existing_test_item: usize = 2;
-    let non_existing_test_item: usize = 6;
-    assert_eq!(
-        has_item(&test_vec, &existing_test_item),
-        true
-    );
-    assert_eq!(
-        has_item(&test_vec, &non_existing_test_item),
-        false
     );
 }
