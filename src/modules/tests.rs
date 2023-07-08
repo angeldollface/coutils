@@ -6,52 +6,52 @@ Licensed under the MIT license.
 /// Importing the "is_int"
 /// function from the "coutils"
 /// module.
-use super::coutils::is_int;
+use super::int_utils::is_int;
 
 /// Importing the "has_item"
 /// function from the "coutils"
 /// module.
-use super::coutils::has_item;
+use super::vec_utils::has_item;
 
 /// Importing the "raise_to"
 /// function from the "coutils"
 /// module.
-use super::coutils::raise_to;
+use super::int_utils::raise_to;
 
 /// Importing the "parse_int"
 /// function from the "coutils"
 /// module.
-use super::coutils::parse_int;
+use super::int_utils::parse_int;
 
 /// Importing the "get_index"
 /// function from the "coutils"
 /// module.
-use super::coutils::get_index;
+use super::vec_utils::get_index;
 
 /// Importing the "has_index"
 /// function from the "coutils"
 /// module.
-use super::coutils::has_index;
+use super::vec_utils::has_index;
 
 /// Importing the "reverse_vec"
 /// function from the "coutils"
 /// module.
-use super::coutils::reverse_vec;
-
-/// Importing the "clean_split"
-/// function from the "coutils"
-/// module.
-use super::coutils::clean_split;
+use super::vec_utils::reverse_vec;
 
 /// Importing the "remove_last"
 /// function from the "coutils"
 /// module.
-use super::coutils::remove_last;
+use super::vec_utils::remove_last;
 
 /// Importing the "get_last_item"
 /// function from the "coutils"
 /// module.
-use super::coutils::get_last_item;
+use super::vec_utils::get_last_item;
+
+/// Importing the "clean_split"
+/// function from the "coutils"
+/// module.
+use super::string_utils::clean_split;
 
 /// Testing the "clean_split" function.
 #[test]
