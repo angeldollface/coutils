@@ -1,13 +1,13 @@
 [package]
 name = "coutils"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 author = ["Angel Dollface <youreccentricity@outlook.com>"]
 license = "MIT"
 description= "A set of useful functions for Rust."
 homepage = "https://github.com/angeldollface/coutils"
 repository = "https://github.com/angeldollface/coutils"
-documentation = "https://docs.rs/coutils/1.0.0"
+documentation = "https://docs.rs/coutils/1.1.0"
 readme = "README.markdown"
 keywords = [
   "utilities"

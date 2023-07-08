@@ -103,8 +103,8 @@ pub fn clean_split(
     return result;
 }
 
-/// Tries to read a file and return
-/// its contents as a string.
+/// Tries to read a file and returns
+/// its contents as a contents.
 pub fn read_file(filename: &String) -> String {
     let mut result: String = String::from("");
     if file_is(filename) == true {
@@ -227,6 +227,21 @@ pub fn reverse_vec<T: Clone>(subject: &Vec<T>) -> Vec<T> {
     let last_index: usize = subject.len();
     for i in (0..last_index).rev() {
         result.push(subject[i].clone());
+    }
+    return result;
+}
+
+/// Checks whether an item exists in a vector. Any type allowed.
+pub fn has_item<T: Clone + PartialEq>(subject: &Vec<T>, item: &T) -> bool {
+    let mut result: bool = false;
+    let match_op = &subject.iter().position(|r| r == item);
+    match match_op {
+        Some(_x) => {
+            result = true;
+        }
+        None => {
+            // Do nothing.
+        }
     }
     return result;
 }

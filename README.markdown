@@ -10,15 +10,15 @@ I found myself re-writing the same functions a million times in different Rust p
 
 ## INSTALLATION
 
-To use ***Coutils*** in your rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
+To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
-coutils = "1.0.0"
+coutils = "1.1.0"
 ```
 
 ## USAGE
 
-To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.0.0).
+To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.1.0).
 
 ## CHANGELOG
 
@@ -26,6 +26,12 @@ To check out this crate's API, please visit the [documentation page](https://doc
 
 - Initial release.
 - Upload to GitHub.
+
+### Version 1.1.0
+
+- Added the `has_item` method.
+- Added unit tests.
+- Split the code into modules.
 
 ## NOTE
 

@@ -8,6 +8,11 @@ Licensed under the MIT license.
 /// module.
 use super::coutils::is_int;
 
+/// Importing the "has_item"
+/// function from the "coutils"
+/// module.
+use super::coutils::has_item;
+
 /// Importing the "raise_to"
 /// function from the "coutils"
 /// module.
@@ -164,5 +169,21 @@ pub fn test_get_last_item() -> () {
             &test_vec
         ),
         last
+    );
+}
+
+/// Testing the "has_item" function.
+#[test]
+pub fn test_has_item() -> () {
+    let test_vec: Vec<usize> = vec![1,2,3,4,5];
+    let existing_test_item: usize = 2;
+    let non_existing_test_item: usize = 6;
+    assert_eq!(
+        has_item(&test_vec, &existing_test_item),
+        true
+    );
+    assert_eq!(
+        has_item(&test_vec, &non_existing_test_item),
+        false
     );
 }
