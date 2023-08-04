@@ -13,12 +13,12 @@ I found myself re-writing the same functions a million times in different Rust p
 To use ***Coutils*** in your Rust project, add this line to your project's `Cargo.toml`'s `[dependencies]` section:
 
 ```TOML
-coutils = "1.4.0"
+coutils = "1.5.0"
 ```
 
 ## USAGE
 
-To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.4.0).
+To check out this crate's API, please visit the [documentation page](https://docs.rs/coutils/1.5.0).
 
 ## CHANGELOG
 
@@ -52,6 +52,11 @@ To check out this crate's API, please visit the [documentation page](https://doc
 - Added better error-catching architecture via the `Result` enum.
 - Improved documentation.
 - Added a function to get the current time as a formatted string.
+
+### Version 1.5.0
+
+- Improved documentation.
+- Removed dependencies that will break WASM builds.
 
 ## NOTE
 

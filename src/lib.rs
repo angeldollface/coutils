@@ -44,11 +44,6 @@ pub use modules::vec_utils::*;
 pub use modules::file_utils::*;
 
 /// Declaring the module for
-/// working with extra things
-/// and exporting it.
-pub use modules::extra_utils::*;
-
-/// Declaring the module for
 /// working with strings
 /// and exporting it.
 pub use modules::string_utils::*;

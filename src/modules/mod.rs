@@ -32,12 +32,6 @@ pub mod dir_utils;
 pub mod vec_utils;
 
 /// Exporting the module
-/// for working with
-/// other relevant and
-/// useful things.
-pub mod extra_utils;
-
-/// Exporting the module
 /// for working with 
 /// files.
 pub mod file_utils;
