@@ -2,7 +2,7 @@
 name = "coutils"
 version = "1.5.0"
 edition = "2021"
-author = ["Angel Dollface <youreccentricity@outlook.com>"]
+author = ["Angel Dollface <angelbbe@proton.me>"]
 license = "MIT"
 description= "A set of useful functions for Rust."
 homepage = "https://github.com/angeldollface/coutils"
