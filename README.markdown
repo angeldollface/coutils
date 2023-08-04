@@ -6,7 +6,7 @@
 
 ## ABOUT
 
-I found myself re-writing the same functions a million times in different Rust projects. Because this is not efficient and is quite time-consuming, I thought I'd unify these common functions into a library. This is that library. ***Coutils*** is short for ***Co***mmon ***Utilities***. Enjoy. :heart:
+I found myself re-writing the same functions a million times in different Rust projects. Because this is not efficient and is quite time-consuming, I thought I'd unify these common functions into a library. This is that library. ***Coutils*** is short for ***Co***mmon ***Utilities***. Enjoy.
 
 ## INSTALLATION
 
